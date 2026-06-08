@@ -57,13 +57,6 @@ export const SmartbioTemplate = memo(function SmartbioTemplate({
         contain: "layout style paint",
       }}
     >
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-      />
       {/* Header Section with Gradient and Curve */}
       <div 
         className="relative w-full h-40 sm:h-44 md:h-48 lg:h-52"

@@ -50,13 +50,6 @@ export const AuroraPillsTemplate = memo(function AuroraPillsTemplate({
 
   return (
     <div className="relative w-full min-h-screen overflow-y-auto px-6 py-10" style={backgroundStyle}>
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-      />
       <div className="w-full max-w-md mx-auto">
         <div className="text-center mb-8">
           <div className="relative mx-auto mb-3 h-32 w-32 rounded-full border border-white/30 bg-white/10 p-1 shadow-xl backdrop-blur">

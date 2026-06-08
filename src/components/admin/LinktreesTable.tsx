@@ -368,7 +368,7 @@ export const LinktreesTable = memo(function LinktreesTable({
                 <tr className="bg-white">
                   <td colSpan={8} className="px-4 py-8 text-center text-gray-500 text-xs sm:text-sm bg-white">
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-4 h-4 border-2 border-gray-300 border-t-brand-600 rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-gray-300 border-t-red-600 rounded-full animate-spin" />
                       <span>Loading...</span>
                     </div>
                   </td>

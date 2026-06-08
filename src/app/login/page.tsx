@@ -99,6 +99,19 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row relative bg-white dark:bg-[#090a0f] transition-colors duration-300">
 
+      {/* ── Full-page diagonal grid pattern overlay ────────────────── */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-[0.10] dark:opacity-[0.10]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px), repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px)",
+        }}
+      />
+      {/* ── Purple-blue radial glow (bottom-right) ────────── */}
+      <div
+        className="fixed bottom-0 right-0 w-[600px] h-[600px] pointer-events-none z-0 opacity-[0.20] dark:opacity-[0.14]"
+        style={{ background: "radial-gradient(circle at bottom right, rgba(120,80,220,0.85), rgba(60,100,255,0.45) 40%, transparent 70%)" }}
+      />
+
       {/* ── Back button ─────────────────────────────────── */}
       <button
         onClick={handleGoHome}
@@ -113,75 +126,19 @@ export default function LoginPage() {
         <span className="text-sm font-medium">گەڕانەوە</span>
       </button>
 
-      {/* ── Left panel (desktop only) ────────────────────── */}
-      <div
-        className="hidden lg:flex lg:w-1/2 items-center justify-center px-8 xl:px-16 py-12 relative overflow-hidden"
-        style={{
-          background: "linear-gradient(to bottom right, rgba(71,192,185,0.95), rgba(71,192,185,0.85), rgba(71,192,185,0.95))",
-        }}
-      >
-        {/* Decorative blobs */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-md text-center space-y-1 z-10">
-          <div className="space-y-4">
-            <div className="flex justify-center">
-              <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-lg">
-                <Image
-                  src="/images/Logo.jpg"
-                  alt="Bahroz Logo"
-                  width={112}
-                  height={112}
-                  className="rounded-full"
-                  priority
-                  quality={85}
-                />
-              </div>
-            </div>
-            <h2 className="text-4xl xl:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-sm">
-              بەخێربێیت
-            </h2>
-            <p className="text-lg xl:text-xl text-white/90 leading-tight">
-              پەیجەکانت بەڕێوە ببەو داتاکان ببینە.
-            </p>
-          </div>
-          <div className="pt-4 border-t border-white/20">
-            <p className="text-base text-white/80 leading-tight">
-              بەکارهێنانی ئاسان و خێرا بۆ بەڕێوەبردنی پەیجەکانت
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Vertical divider ────────────────────────────── */}
-      <div
-        className="hidden lg:block absolute left-1/2 top-[12%] h-[76%] w-px -translate-x-px pointer-events-none z-10"
-        style={{
-          background: "linear-gradient(to bottom, transparent, rgba(71,192,185,0.4), rgba(71,192,185,0.55), rgba(71,192,185,0.4), transparent)",
-        }}
-      />
-
-      {/* ── Right panel — Login form ─────────────────────── */}
+      {/* ── Left panel — Login form ─────────────────────── */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 py-8 lg:py-12 relative overflow-hidden">
 
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.05] dark:opacity-[0.04] pointer-events-none transition-opacity duration-300"
-          style={{
-            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 24px, #7E0001 24px, #7E0001 25px), repeating-linear-gradient(90deg, transparent, transparent 24px, #7E0001 24px, #7E0001 25px)`,
-          }}
-        />
         {/* Radial glow */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full opacity-[0.12] dark:opacity-[0.07] pointer-events-none transition-opacity duration-300"
-          style={{ background: "radial-gradient(circle, rgba(71,192,185,0.7), transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(126,0,1,0.7), transparent 65%)" }}
         />
         {/* Corner accents */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-[0.06] dark:opacity-[0.04] pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(71,192,185,0.6), transparent 60%)" }} />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-[0.05] dark:opacity-[0.03] pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(71,192,185,0.5), transparent 60%)" }} />
+        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-[0.06] dark:opacity-[0.04] pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(126,0,1,0.6), transparent 60%)" }} />
+        <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full opacity-[0.05] dark:opacity-[0.03] pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(126,0,1,0.5), transparent 60%)" }} />
 
         <div className="w-full max-w-md relative z-10">
 
@@ -225,27 +182,14 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* ── Form card ─────────────────────────────────── */}
-          <div className="
-            relative rounded-2xl p-6 sm:p-8
-            bg-white dark:bg-[#14161f]
-            border border-slate-100/80 dark:border-white/8
-            shadow-[0_2px_20px_-6px_rgba(71,192,185,0.10)] dark:shadow-[0_4px_32px_-8px_rgba(0,0,0,0.5)]
-            backdrop-blur-sm
-          ">
-            {/* Top accent bar */}
-            <div
-              className="absolute top-0 left-8 right-8 h-0.5 rounded-full"
-              style={{ background: "linear-gradient(90deg, transparent, #7E0001, transparent)" }}
-            />
-
-            <form
-              onSubmit={handleSubmit}
-              onKeyDown={handleKeyDown}
-              className="w-full flex flex-col gap-5"
-              noValidate
-              autoComplete="on"
-            >
+          {/* ── Form ─────────────────────────────────── */}
+          <form
+            onSubmit={handleSubmit}
+            onKeyDown={handleKeyDown}
+            className="w-full flex flex-col gap-5"
+            noValidate
+            autoComplete="on"
+          >
               {/* Error message */}
               {(error || usernameError || passwordError) && (
                 <div className="w-full rounded-xl px-4 py-3 text-sm text-center
@@ -338,12 +282,60 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full rounded-xl px-4 py-3 text-base font-medium text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-brand-button shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-100"
-                style={{ minHeight: "48px" }}
+                className="w-full rounded-xl px-4 py-3 text-base font-medium text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-100"
+                style={{ minHeight: "48px", backgroundColor: "#7E0001" }}
               >
                 {isLoading ? "چاوەڕوان بە..." : "چوونەژوورەوە"}
               </button>
-            </form>
+          </form>
+        </div>
+      </div>
+
+      {/* ── Vertical divider ────────────────────────────── */}
+      <div
+        className="hidden lg:block absolute left-1/2 top-[12%] h-[76%] w-px -translate-x-px pointer-events-none z-10"
+        style={{
+          background: "linear-gradient(to bottom, transparent, rgba(126,0,1,0.4), rgba(126,0,1,0.55), rgba(126,0,1,0.4), transparent)",
+        }}
+      />
+
+      {/* ── Right panel (desktop only) ────────────────────── */}
+      <div
+        className="hidden lg:flex lg:w-1/2 items-center justify-center px-8 xl:px-16 py-12 relative overflow-hidden"
+        style={{
+          background: "linear-gradient(to bottom right, rgba(126,0,1,0.95), rgba(126,0,1,0.85), rgba(126,0,1,0.95))",
+        }}
+      >
+        {/* Decorative blobs */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-md text-center space-y-1 z-10">
+          <div className="space-y-4">
+            <div className="flex justify-center">
+              <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-lg">
+                <Image
+                  src="/images/Logo.jpg"
+                  alt="Bahroz Logo"
+                  width={112}
+                  height={112}
+                  className="rounded-full"
+                  priority
+                  quality={85}
+                />
+              </div>
+            </div>
+            <h2 className="text-4xl xl:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-sm">
+              بەخێربێیت
+            </h2>
+            <p className="text-lg xl:text-xl text-white/90 leading-tight">
+              پەیجەکانت بەڕێوە ببەو داتاکان ببینە.
+            </p>
+          </div>
+          <div className="pt-4 border-t border-white/20">
+            <p className="text-base text-white/80 leading-tight">
+              بەکارهێنانی ئاسان و خێرا بۆ بەڕێوەبردنی پەیجەکانت
+            </p>
           </div>
         </div>
       </div>

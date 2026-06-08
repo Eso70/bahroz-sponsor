@@ -72,14 +72,6 @@ export const GentleFlowTemplate = memo(function GentleFlowTemplate({
           }}
         />
       </div>
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-        aria-hidden
-      />
       
       <div className="relative w-full max-w-md mx-auto">
         {/* Profile Section - No card, direct on gradient */}

@@ -802,9 +802,23 @@ export const AdminDashboard = memo(function AdminDashboard({
   return (
     <div
       data-admin-dashboard
-      className={`h-screen flex flex-col overflow-hidden transition-colors duration-300 ${isDarkActive ? "dark bg-slate-950 text-slate-100" : "bg-white text-slate-800"}`}
+      className={`h-screen flex flex-col overflow-hidden transition-colors duration-300 relative ${isDarkActive ? "dark bg-slate-950 text-slate-100" : "bg-white text-slate-800"}`}
       suppressHydrationWarning
     >
+      {/* Full-page diagonal grid overlay (covers header + main) */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.10] dark:opacity-[0.10]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px), repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px)",
+        }}
+      />
+      {/* Purple-blue radial glow (bottom-right, covers entire page) */}
+      <div
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] pointer-events-none z-[1] opacity-[0.20] dark:opacity-[0.14]"
+        style={{ background: "radial-gradient(circle at bottom right, rgba(120,80,220,0.85), rgba(60,100,255,0.45) 40%, transparent 70%)" }}
+      />
+
       <AdminHeader 
         onCreateNew={handleCreateNew} 
         onRefresh={handleRefresh}
@@ -815,16 +829,9 @@ export const AdminDashboard = memo(function AdminDashboard({
 
       {/* Main Content */}
       <main 
-        className="flex-1 w-full overflow-y-auto bg-white dark:bg-slate-950 relative" 
+        className="flex-1 w-full overflow-y-auto relative" 
         dir="rtl"
       >
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.06] dark:opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-          }}
-        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 md:py-8 lg:py-10 relative">
           {/* Stats Cards */}
           <div className="mb-6 sm:mb-8">

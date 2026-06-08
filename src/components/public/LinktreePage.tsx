@@ -322,11 +322,16 @@ export const LinktreePage = memo(function LinktreePage({ linktree, links }: Link
   return (
     <div className="relative">
       <div
-        className="fixed inset-0 pointer-events-none opacity-[0.06]"
+        className="fixed inset-0 pointer-events-none z-20 opacity-[0.10] dark:opacity-[0.10]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
+            "repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px), repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(150,150,150,0.7) 28px, rgba(150,150,150,0.7) 29px)",
         }}
+      />
+      {/* Purple-blue radial glow (bottom-right) */}
+      <div
+        className="fixed bottom-0 right-0 w-[600px] h-[600px] pointer-events-none z-20 opacity-[0.20] dark:opacity-[0.14]"
+        style={{ background: "radial-gradient(circle at bottom right, rgba(120,80,220,0.85), rgba(60,100,255,0.45) 40%, transparent 70%)" }}
       />
       <div className="relative z-10">
         {/* Dynamic template renders based on template_config from database */}

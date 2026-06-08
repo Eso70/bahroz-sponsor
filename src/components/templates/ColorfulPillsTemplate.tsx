@@ -86,13 +86,6 @@ export const ColorfulPillsTemplate = memo(function ColorfulPillsTemplate({
       className="relative w-full min-h-screen overflow-y-auto py-12 px-6"
       style={backgroundStyle}
     >
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-      />
       <div className="w-full max-w-md mx-auto">
         {/* Profile Section */}
         <div className="text-center mb-12">

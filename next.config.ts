@@ -9,7 +9,7 @@ const parseOrigins = (origins: string | undefined, fallback: string[]): string[]
 
 // Get allowed CORS origins from environment variable (comma-separated)
 const getAllowedCorsOrigins = (): string[] => {
-  const port = process.env.PORT || 3002;
+  const port = process.env.PORT || 3007;
   const corsOrigins = process.env.CORS_ALLOWED_ORIGINS || process.env.ALLOWED_DEV_ORIGINS;
   return parseOrigins(corsOrigins, [`http://localhost:${port}`]);
 };
@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
     const allowedOrigins = getAllowedCorsOrigins();
     // Use first allowed origin (restricted CORS - not wildcard)
     // Fallback to localhost if no origins configured
-    const port = process.env.PORT || 3002;
+    const port = process.env.PORT || 3007;
     const corsOrigin = allowedOrigins.length > 0 ? allowedOrigins[0] : `http://localhost:${port}`;
     
     const securityHeaders = [

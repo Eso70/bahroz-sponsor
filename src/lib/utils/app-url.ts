@@ -1,5 +1,5 @@
 function getLocalBaseUrl(): string {
-  const port = process.env.PORT || 3002;
+  const port = process.env.PORT || 3007;
   return `http://localhost:${port}`;
 }
 

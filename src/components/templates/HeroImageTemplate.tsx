@@ -153,14 +153,6 @@ export const HeroImageTemplate = memo(function HeroImageTemplate({
 
       {/* Content Section Below Image - Theme Background */}
       <div className="relative px-4 sm:px-6 py-6 sm:py-8" style={backgroundStyle}>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-          }}
-          aria-hidden
-        />
         <div className="w-full max-w-md mx-auto">
           {/* Profile Info - Name and Subtitle */}
           <div className="text-center mb-8" style={{ animation: "heroFadeIn 0.8s ease-out" }}>

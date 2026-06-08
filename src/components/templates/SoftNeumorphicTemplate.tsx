@@ -82,14 +82,6 @@ export const SoftNeumorphicTemplate = memo(function SoftNeumorphicTemplate({
     <div className="relative flex min-h-screen w-full justify-center overflow-y-auto px-4 py-12 pb-4">
       {/* Background with gradient */}
       <div className="absolute inset-0" style={backgroundGradient} aria-hidden />
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-        aria-hidden
-      />
 
       <div className="relative z-10 flex w-full max-w-md flex-col items-center gap-5 sm:gap-6 md:gap-8">
         {/* Profile Card with Neumorphic Effect */}

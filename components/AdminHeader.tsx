@@ -143,17 +143,10 @@ export function AdminHeader({ onCreateNew, onRefresh, onProfileClick, theme = "s
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-white dark:bg-[#090a0f] border-b border-gray-200 dark:border-white/8 transition-all duration-400 relative"
+      className="sticky top-0 z-50 w-full bg-transparent border-b border-gray-200 dark:border-white/8 transition-all duration-400 relative"
       dir="ltr"
       suppressHydrationWarning
     >
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06] dark:opacity-[0.02]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px), repeating-linear-gradient(90deg, transparent, transparent 26px, #7E0001 26px, #7E0001 27px)",
-        }}
-      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-18">
           {/* Left Section - Logo & Title */}
