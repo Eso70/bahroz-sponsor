@@ -165,11 +165,25 @@ export async function initializeQueues() {
         if (validItems.length === 0) return;
         
         try {
+          // Check which linktree_ids actually exist to avoid foreign key violations and data loss
+          const uniqueLinktreeIds = Array.from(new Set(validItems.map(item => item.linktree_id)));
+          if (uniqueLinktreeIds.length === 0) return;
+
+          const placeholdersIds = uniqueLinktreeIds.map((_, i) => `$${i + 1}`).join(', ');
+          const existsResult = await query<{ id: string }>(
+            `SELECT id FROM linktrees WHERE id IN (${placeholdersIds})`,
+            uniqueLinktreeIds
+          );
+          const existingIds = new Set(existsResult.rows.map(row => row.id));
+
+          const itemsToInsert = validItems.filter(item => existingIds.has(item.linktree_id));
+          if (itemsToInsert.length === 0) return;
+
           const values: unknown[] = [];
           const placeholders: string[] = [];
           let paramIndex = 1;
 
-          for (const item of validItems) {
+          for (const item of itemsToInsert) {
             const viewedDay = new Date(item.viewed_at).toISOString().slice(0, 10);
             placeholders.push(`($${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++})`);
             values.push(
@@ -217,11 +231,36 @@ export async function initializeQueues() {
         if (validItems.length === 0) return;
         
         try {
+          // Check which linktree_ids and link_ids exist to avoid foreign key violations and data loss
+          const uniqueLinktreeIds = Array.from(new Set(validItems.map(item => item.linktree_id)));
+          const uniqueLinkIds = Array.from(new Set(validItems.map(item => item.link_id)));
+          
+          if (uniqueLinktreeIds.length === 0 || uniqueLinkIds.length === 0) return;
+
+          const ltPlaceholders = uniqueLinktreeIds.map((_, i) => `$${i + 1}`).join(', ');
+          const ltExistsResult = await query<{ id: string }>(
+            `SELECT id FROM linktrees WHERE id IN (${ltPlaceholders})`,
+            uniqueLinktreeIds
+          );
+          const existingLtIds = new Set(ltExistsResult.rows.map(row => row.id));
+
+          const lPlaceholders = uniqueLinkIds.map((_, i) => `$${i + 1}`).join(', ');
+          const lExistsResult = await query<{ id: string }>(
+            `SELECT id FROM links WHERE id IN (${lPlaceholders})`,
+            uniqueLinkIds
+          );
+          const existingLIds = new Set(lExistsResult.rows.map(row => row.id));
+
+          const itemsToInsert = validItems.filter(item => 
+            existingLtIds.has(item.linktree_id) && existingLIds.has(item.link_id)
+          );
+          if (itemsToInsert.length === 0) return;
+
           const values: unknown[] = [];
           const placeholders: string[] = [];
           let paramIndex = 1;
 
-          for (const item of validItems) {
+          for (const item of itemsToInsert) {
             const clickedDay = new Date(item.clicked_at).toISOString().slice(0, 10);
             placeholders.push(`($${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++})`);
             values.push(
