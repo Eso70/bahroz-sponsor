@@ -1,5 +1,6 @@
 import { query, transaction } from "@/lib/database/client";
 import { getCache, setCache, delCache } from "@/lib/database/redis";
+import { cache } from "react";
 // Template system is now fully dynamic using template_config
 
 // Retry utility with exponential backoff
@@ -624,7 +625,7 @@ export async function getLinktreeIdByUid(uid: string): Promise<string | null> {
   return row.id;
 }
 
-export async function getLinktreeWithLinksByUid(uid: string): Promise<{ linktree: Linktree | null; links: Link[] }> {
+export const getLinktreeWithLinksByUid = cache(async (uid: string): Promise<{ linktree: Linktree | null; links: Link[] }> => {
   const cacheKey = `cache:linktree:uid:${uid}`;
   
   // Try to get from Redis cache first
@@ -680,7 +681,7 @@ export async function getLinktreeWithLinksByUid(uid: string): Promise<{ linktree
   await setCache(cacheKey, result, 7200);
 
   return result;
-}
+});
 
 /**
  * Create a new link

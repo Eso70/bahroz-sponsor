@@ -47,12 +47,11 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [75, 80, 85],
-    minimumCacheTTL: 0, // NO CACHE - always fetch fresh images
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Safari/iOS: Ensure images load properly
-    unoptimized: true, // Disable Next.js optimization to prevent 400 errors
+    unoptimized: false, // Enable Next.js optimization
     remotePatterns: [
       {
         protocol: 'https',
@@ -130,19 +129,6 @@ const nextConfig: NextConfig = {
       {
         key: 'Content-Security-Policy',
         value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://analytics.tiktok.com https://*.tiktok.com https://vercel.live https://*.vercel.live https://*.vercel.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data: https://analytics.tiktok.com https://*.tiktok.com; connect-src 'self' https://analytics.tiktok.com https://*.tiktok.com https://*.tiktokw.us https://*.tiktokcdn.com https://*.byteoversea.com https://*.ibyteimg.com https://*.snssdk.com https://*.muscdn.com https://ads.tiktok.com https://vercel.live https://*.vercel.live https://*.vercel.com https://*.vercel.app wss://*.vercel.live wss://*.vercel.com; frame-src 'self' https://vercel.live https://*.vercel.live https://*.vercel.com https://www.google.com https://maps.google.com https://maps.app.goo.gl https://*.google.com; frame-ancestors 'none';"
-      },
-      // NO CACHING - Always fetch fresh
-      {
-        key: 'Cache-Control',
-        value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
-      },
-      {
-        key: 'Pragma',
-        value: 'no-cache',
-      },
-      {
-        key: 'Expires',
-        value: '0',
       },
     ];
 

@@ -14,7 +14,7 @@ function createDynamicTemplate(factory: () => Promise<TemplateComponent>): Templ
         default: Component,
       })),
     {
-      ssr: false,
+      ssr: true,
       loading: () => null,
     },
   ) as TemplateComponent;
