@@ -42,11 +42,6 @@ export default function RootLayout({
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
-        {/* Safari/iOS specific meta tags - Required for proper iPhone functionality */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
-        <meta name="format-detection" content="telephone=no" />
-        {/* Browser compatibility meta tags */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <TikTokPixel />
         {/* Theme init — runs synchronously before paint to avoid flash */}
         <script
